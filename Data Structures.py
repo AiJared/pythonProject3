@@ -65,7 +65,60 @@ vec = [[1,2,3], [4,5,6], [7,8,9]]
 [num for elem in vec for num in elem]
 from math import pi
 [str(round(pi, i)) for i in range(1, 6)]
-
+# Nested List comprehensions
+matrix = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12],
+]
+[[row[i] for row in matrix] for i in range (4)]
+transposed = []
+for i in range(4):
+    # the following three lines implement the nested listcomp
+    transposed_row = []
+    for row in matrix:
+        transposed_row.apend(row[i])
+        transposed.append(transposed_row)
+        print(transposed)
+# The zip() function
+list(zip(*matrix))
+# The Delete Statement
+a = [-1, 1, 66.25, 333, 333, 1234.5]
+del a[0]
+print (a)
+del a[2:4]
+print(a)
+del a[:]
+print (a)
+del a
+# Tuples and Sequences
+t = 12345, 54321, 'hello!'
+t[0]
+print(t)
+# Tuples may be Nested
+u = t, (1, 2 , 3, 4)
+print(u)
+# Tuples are immutable
+t[0] = 88888
+# but the can also contain mutable objects
+v = ([1, 2, 3], [3, 2, 1])
+print(v)
+# Sets
+basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
+print(basket)
+'orange' in basket            # fast membership
+'crabgrass' in basket
+# Demonstrates set operations on unique letters from two words
+a = set('abracadabra')
+b = set('alacazam')
+print(a) # unique letters in a
+print(b) # unique letters in b
+print(a-b) # letters in a but not in b
+print(a | b) # letters in a, b or both
+print(a & b) # letters in both a and b
+print(a ^ b) # letters a or b but not both
+a = {x for x in 'abracadabra' if x not in 'abc'}
+print(a)
 
 
 
