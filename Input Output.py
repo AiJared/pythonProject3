@@ -26,3 +26,63 @@ for name, phone in table.items():
 # Other modifiers can be used to convert the value before it is formatted
 animals = 'eels'
 print(f'My hovercraft is full of {animals}')
+# The String format() method
+print('We are the {} who say "{}"!'.format('knights', 'Ni'))
+print('{0}' and '{1}'.format('spam', 'eggs'))
+print('{1}' and '{0}'.format('spam', 'eggs'))
+print('This {food} is {adjective}.'.format(
+    food='spam', adjective='absolutely horrible'
+))
+# Positional and keyword arguments can be arbitrarily combined
+print('The story of {0}, {1} and {other}.'.format('Bill', 'Manfred', other='George'))
+table = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 8637678}
+print('Jack: {0[Jack]:d}; Sjoerd: {0[Sjoerd]:d}; ' 'Dcab: {0[Dcab]:d'.format(table))
+# Using '**' notation to pass the table as keyword arguments
+table = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 8637678}
+print('Jack: {Jack:d}; Sjoerd: {Sjoerd:d}; Dcab: {Dcab:d}'.format(**table))
+for x in range(1, 11):
+    print('{0:2d} {1:3d} {2:4d}'.format(x, x*x, x*x*x))
+# Manual String Formatting
+for x in range(1, 11):
+    print(repr(x).rjust(2), repr(x*x).rjust(3), end='')
+    # Note use of 'end' on previous line
+    print(repr(x*x*x).rjust(4))
+# str.zfill() method
+'12'.zfill(5)
+'-3.14'.zfill(7)
+'3.14159265359'.zfill(5)
+# The Old String Formatting
+import math
+print('The value of pi is approximately %5.3f.' %math.pi)
+# Reading and writing files
+f = open('workfile', 'w')
+with open('workfile') as f:
+    read_data = f.read()
+    f.closed
+# Methiods of file objects
+f.read()
+f.read()
+f.readline()
+f.readline()
+f.readline()
+# Looping over the file object
+for line in f:
+    print(line, end='')
+f.write('This is a test \n')
+# Converting objects either to string(in text mode) or bytes(in binary mode)
+value = ('The answer', 42)
+s = str(value) # convert the tuple to string
+f.write(s)
+# from_what arguments
+f = open('workfile', 'rb+')
+f.write(b'012345678abcdef')
+f.seek(5) # Go to the 6th byte in the file
+f.read(1)
+f.seek(-3, 2) # Go to the 3rd value before the end
+f.read(1)
+# Saving structured data with json
+import json
+json.dumps([1, 'simple', 'list'])
+# dump() serializes the object to a text file
+json.dump(x, f)
+x = json.load(f)
